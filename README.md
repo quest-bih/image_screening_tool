@@ -12,28 +12,28 @@ This tool is still work in progress. Further updates are planned that improve th
 
 ## Contributors
 
-Nico Riedel - 
+Nico Riedel \
 QUEST Center for Transforming Biomedical Research, Berlin Institute of Health (BIH) at Charité – Universitätsmedizin Berlin, Berlin, Germany
 https://orcid.org/0000-0002-3808-1163
 
-Małgorzata Anna Gazda - 
+Małgorzata Anna Gazda \
 CIBIO/InBIO, Centro de Investigação em Biodiversidade e Recursos Genéticos, Campus Agrário de Vairão, Universidade do Porto, Vairão, Portugal, Departamento de Biologia, Faculdade de Ciências, Universidade do Porto, Porto, Portugal, https://orcid.org/0000-0001-8369-1350
  
-Alberto Antonietti - 
+Alberto Antonietti \
 Department of Electronics, Information and Bioengineering, Politecnico di Milano, Italy, Department of Brain and Behavioral Sciences, University of Pavia, Pavia, Italy
 https://orcid.org/0000-0003-0388-6321
  
-Susann Auer - 
+Susann Auer \
 Department of Plant Physiology, Faculty of Biology, Technische Universität Dresden, Dresden, Germany
 https://orcid.org/0000-0001-6566-5060
 
-Tracey Weissgerber - 
+Tracey Weissgerber \
 QUEST Center for Transforming Biomedical Research, Berlin Institute of Health (BIH) at Charité – Universitätsmedizin Berlin, Berlin, Germany
 https://orcid.org/0000-0002-7490-2600
 
-Conceptualization: All
-Data curation: TLW, MAG, AA, SA
-Methodology: All
+Conceptualization: All \
+Data curation: TLW, MAG, AA, SA \
+Methodology: All \
 Software: NR
 
 
