@@ -50,10 +50,20 @@ calc_performance <- function(validation_results, barzooka_results)
 performance_metrics <- function(predictions, y)
 {
   cont <- table(y, predictions)
-  tn <- cont[1,1]
-  tp <- cont[2,2]
-  fp <- cont[1,2]
-  fn <- cont[2,1]
+
+  #special case if no positive predictions for one class
+  if(length(colnames(cont)) == 1 && colnames(cont) == "FALSE")
+  {
+    tn <- cont[1,1]
+    tp <- 0
+    fp <- 0
+    fn <- cont[2,1]
+  } else {
+    tn <- cont[1,1]
+    tp <- cont[2,2]
+    fp <- cont[1,2]
+    fn <- cont[2,1]
+  }
 
   count_manual <- tp + fn
   count_barzooka <- tp + fp
@@ -121,39 +131,10 @@ pred_labels_binary <- binary_class_encoding(pred_labels, class_labels, "_pred")
 # comparison of results
 #------------------------------------------------------------------------------------------
 
-metrics_table_int <- calc_performance(valid_labels_binary, pred_labels_binary)
+metrics_table_int <- calc_performance(valid_labels_binary, pred_labels_binary) %>%
+  mutate(across(sensitivity:accuracy, ~ .x %>% round(2)))
 write_csv(metrics_table_int, "results_csv/performance_metrics.csv")
 
 #total number of labels so far
 read_csv("training_images/labels.csv")$labels %>% str_split("_") %>% unlist() %>% table()
 
-
-#------------------------------------------------------------------------------------------
-# optional: check false positive and false negative results
-#------------------------------------------------------------------------------------------
-
-copy_false_pos_neg_cases <- function(valid_dataset, pred_dataset, class_name, folder_label, false_pos = TRUE)
-{
-  compare_results <- valid_dataset %>%
-    left_join(pred_dataset, by = "image_name")
-
-  if(false_pos) {
-    pred_bool <- TRUE
-    valid_bool <- FALSE
-  } else {
-    pred_bool <- FALSE
-    valid_bool <- TRUE
-  }
-
-  fp_image_names <- compare_results[(compare_results[[paste0(class_name , "_valid")]] == valid_bool) &
-                                      (compare_results[[paste0(class_name , "_pred")]] == pred_bool),]$image_name
-
-  dest_folder <- paste0("validation_false_pos_neg/", folder_label)
-  dir.create(dest_folder)
-  for(i in 1:length(fp_image_names)) {
-    file.copy(paste0("C:/Datenablage/Image screening tool/training_images/valid/", fp_image_names[i]),
-              dest_folder)
-  }
-}
-
-copy_false_pos_cases(validation_results, barzooka_results_no_flow_add_verif_more_text_other_shuffle_resnet101, "bar_dot", "bardot_fp_new")

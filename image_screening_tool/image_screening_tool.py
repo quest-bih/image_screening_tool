@@ -1,5 +1,6 @@
 import os
 from fastai.vision.all import *
+import numpy as np
 
 class Screening_Tool(object):
     def __init__(self, model_file):
@@ -32,6 +33,10 @@ class Screening_Tool(object):
                 screening_result = self.predict_from_file(paper_id, tmp_folder)
             except:
                 print("Could not screen pdf " + paper_id)
+                # remove remaining temporary images in case they did not get deleted
+                images = get_image_files(tmp_folder)
+                for j in range(0, len(images)):
+                    os.remove(images[j])
 
             result_row = pd.DataFrame([screening_result])
             result_row.to_csv(save_filename, mode='a', header=False, index=False)
