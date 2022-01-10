@@ -79,7 +79,7 @@ Same as predict_from_img, just takes path to folder containing image files as in
 
 ## Performance
 
-Those are the current performance metric on the validation dataset, consisting of 10% of the entire dataset that were not used for training of the model.
+The following table summarizes the current performance metric on the validation dataset, consisting of 10% of the entire dataset that were not used for training of the model. As the tool is still under development, further updates are planned that will improve the performance of the tool and that will add additional detected classes.
 
 | class | cases_manual | cases_tool | true_pos | true_neg | false_pos | false_neg | sensitivity | specificity | precision | recall | F1 | accuracy |
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
@@ -87,8 +87,8 @@ Those are the current performance metric on the validation dataset, consisting o
 | EM | 24 | 26 | 20 | 956 | 6 | 4 | 0.83 | 0.99 | 0.77 | 0.83 | 0.8 | 0.99 |
 | Medical | 5 | 3 | 1 | 979 | 2 | 4 | 0.2 | 1 | 0.33 | 0.2 | 0.25 | 0.99 |
 | MicroPhoto | 235 | 240 | 220 | 731 | 20 | 15 | 0.94 | 0.97 | 0.92 | 0.94 | 0.93 | 0.96 |
-| Other | 485 | 492 | 476 | 485 | 16 | 9 | 0.98 | 0.97 | 0.97 | 0.98 | 0.97 | 0.97 |
 | Photo | 88 | 71 | 66 | 893 | 5 | 22 | 0.75 | 0.99 | 0.93 | 0.75 | 0.83 | 0.97 |
+| Other | 485 | 492 | 476 | 485 | 16 | 9 | 0.98 | 0.97 | 0.97 | 0.98 | 0.97 | 0.97 |
 | Text | 60 | 60 | 59 | 925 | 1 | 1 | 0.98 | 1 | 0.98 | 0.98 | 0.98 | 1 |
 
 
