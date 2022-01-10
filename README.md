@@ -34,7 +34,7 @@ https://orcid.org/0000-0002-7490-2600
 Conceptualization: All \
 Data curation: TLW, MAG, AA, SA \
 Methodology: All \
-Software: NR \
+Software: NR
 
 
 ## Usage
