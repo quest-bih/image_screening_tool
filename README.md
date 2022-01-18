@@ -4,8 +4,8 @@ This image screening tool is designed to screen biomedical publications for diff
 
  - blots
  - electron microscope images
- - microscopy photographs
- - other photographs
+ - microscope images
+ - photographs
 
 This tool is still work in progress. Further updates are planned that improve the performance of the tool and that add additional detected classes.
 
@@ -75,6 +75,23 @@ st.predict_from_img_folder(img_folder)
 ```
 
 Same as predict_from_img, just takes path to folder containing image files as input and screens all images in that folder.
+
+
+## Training dataset
+
+The training dataset was created from recently published biomedical Open Access publications. Several thousand publications that contained relevant image types were identified using a full text keyword search via the Dimensions API. Keywords included ("EM image" OR "SEM imag" OR "TEM image") for the category "electron microscope images" or ("blot" OR "immunoblot" OR "gel" OR "electrophoresis") for the category "blots". The pages of all retrieved publications were exported as images and manually categorized according to the relevant categories, or if no relevant category was detected, either as "text" page or as "other page" (containing images/diagrams not belonging to any relevant class). If several relevant image types were detected on one page, all relevant class labels were assigned to that page. Overall, 9836 images were included in the current training dataset with the following class distribution:
+
+| class | number of images |
+|-------|------------------|
+| Blot | 1880 |
+| EM | 336 |
+| Medical | 64 |
+| MicroPhoto | 2306 |
+| Photo | 888 |
+| Other | 4939 |
+| Text | 500 |
+
+10% of this dataset was not used for training but kept as a validation dataset.
 
 
 ## Performance
