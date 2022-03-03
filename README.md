@@ -79,16 +79,16 @@ Same as predict_from_img, just takes path to folder containing image files as in
 
 ## Training dataset
 
-The training dataset was created from recently published biomedical Open Access publications. Several thousand publications that contained relevant image types were identified using a full text keyword search via the Dimensions API. Keywords included ("EM image" OR "SEM imag" OR "TEM image") for the category "electron microscope images" or ("blot" OR "immunoblot" OR "gel" OR "electrophoresis") for the category "blots". The pages of all retrieved publications were exported as images and manually categorized according to the relevant categories, or if no relevant category was detected, either as "text" page or as "other page" (containing images/diagrams not belonging to any relevant class). If several relevant image types were detected on one page, all relevant class labels were assigned to that page. Overall, 9836 images were included in the current training dataset with the following class distribution:
+The training dataset was created from recently published biomedical Open Access publications. Several thousand publications that contained relevant image types were identified using a full text keyword search via the Dimensions API. Keywords included ("EM image" OR "SEM imag" OR "TEM image") for the category "electron microscope images" or ("blot" OR "immunoblot" OR "gel" OR "electrophoresis") for the category "blots". The pages of all retrieved publications were exported as images and manually categorized according to the relevant categories, or if no relevant category was detected, either as "text" page or as "other page" (containing images/diagrams not belonging to any relevant class). If several relevant image types were detected on one page, all relevant class labels were assigned to that page. Overall, 11845 images were included in the current training dataset with the following class distribution:
 
 | class | number of images |
 |-------|------------------|
-| Blot | 1880 |
-| EM | 336 |
-| Medical | 64 |
-| MicroPhoto | 2306 |
-| Photo | 888 |
-| Other | 4939 |
+| Blot | 2849 |
+| EM | 1322 |
+| Medical | 836 |
+| MicroPhoto | 2903 |
+| Photo | 1910 |
+| Other | 4938 |
 | Text | 500 |
 
 10% of this dataset was not used for training but kept as a validation dataset.
@@ -100,13 +100,14 @@ The following table summarizes the current performance metric on the validation 
 
 | class | cases_manual | cases_tool | true_pos | true_neg | false_pos | false_neg | sensitivity | specificity | precision | recall | F1 | accuracy |
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Blot | 197 | 189 | 186 | 786 | 3 | 11 | 0.94 | 1 | 0.98 | 0.94 | 0.96 | 0.99 |
-| EM | 24 | 26 | 20 | 956 | 6 | 4 | 0.83 | 0.99 | 0.77 | 0.83 | 0.8 | 0.99 |
-| Medical | 5 | 3 | 1 | 979 | 2 | 4 | 0.2 | 1 | 0.33 | 0.2 | 0.25 | 0.99 |
-| MicroPhoto | 235 | 240 | 220 | 731 | 20 | 15 | 0.94 | 0.97 | 0.92 | 0.94 | 0.93 | 0.96 |
-| Photo | 88 | 71 | 66 | 893 | 5 | 22 | 0.75 | 0.99 | 0.93 | 0.75 | 0.83 | 0.97 |
-| Other | 485 | 492 | 476 | 485 | 16 | 9 | 0.98 | 0.97 | 0.97 | 0.98 | 0.97 | 0.97 |
-| Text | 60 | 60 | 59 | 925 | 1 | 1 | 0.98 | 1 | 0.98 | 0.98 | 0.98 | 1 |
+| Blot | 268 | 269 | 263 | 1053 | 6 | 5 | 0.98 | 0.99 | 0.98 | 0.98 | 0.98 | 0.99 |
+| EM | 129 | 132 | 118 | 1184 | 14 | 11 | 0.91 | 0.99 | 0.89 | 0.91 | 0.9 | 0.98 |
+| Medical | 95 | 88 | 85 | 1229 | 3 | 10 | 0.89 | 1 | 0.97 | 0.89 | 0.93 | 0.99 |
+| MicroPhoto | 271 | 268 | 246 | 1034 | 22 | 25 | 0.91 | 0.98 | 0.92 | 0.91 | 0.91 | 0.96 |
+| Photo | 186 | 175 | 159 | 1125 | 16 | 27 | 0.85 | 0.99 | 0.91 | 0.85 | 0.88 | 0.97 |
+| Other | 506 | 501 | 489 | 809 | 12 | 17 | 0.97 | 0.99 | 0.98 | 0.97 | 0.97 | 0.98 |
+| Text | 60 | 61 | 59 | 1265 | 2 | 1 | 0.98 | 1 | 0.97 | 0.98 | 0.98 | 1 |
+
 
 
 ## Additional files
